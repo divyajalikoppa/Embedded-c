@@ -1,0 +1,15 @@
+#include<LPC17xx.h>
+int main(void)
+{
+	int i;
+	while(1)
+	{
+		LPC_PINCON->PINSEL1 &=0XFFFcFFFF;
+		LPC_GPIO0->FIODIR |=0X01000000;
+		LPC_GPIO0->FIOSET =0X01000000;
+		for(i=0;i<1000000;i++);
+		LPC_GPIO0->FIOCLR=0X01000000;
+		for(i=0;i<1000000;i++);
+exit();
+}
+}
